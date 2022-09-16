@@ -1,10 +1,9 @@
-import { useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Modal from '../UI/Modal';
 import classes from './Cart.module.css';
 import CartContext from '../../store/cart-context';
 import CartItem from './CartItem';
 import Checkout from './Checkout';
-import React from 'react';
 
 const Cart = (props) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -18,11 +17,11 @@ const Cart = (props) => {
     const hasItems = cartCtx.items.length > 0;
 
     const cartItemRemoveHandler = (id) => {
-        cartCtx.removeItem(id)
+        cartCtx.removeItem(id);
     };
 
     const cartItemAddHandler = (item) => {
-        cartCtx.addItem({ ...item, amount: 1 })
+        cartCtx.addItem({ ...item, amount: 1 });
     };
 
     const cartItems = (<ul className={classes['cart-items']}>

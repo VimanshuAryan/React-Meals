@@ -3,32 +3,32 @@ import classes from './AvailableMeals.module.css';
 import Card from "../UI/Card";
 import MealItem from "./MealItem/MealItem";
 
-const DUMMY_MEALS = [
-    {
-        id: 'm1',
-        name: 'Kadhai Chicken',
-        description: 'Finest chicken and veggies',
-        price: 599,
-    },
-    {
-        id: 'm2',
-        name: 'Momos',
-        description: 'An east Indian specialty!',
-        price: 249,
-    },
-    {
-        id: 'm3',
-        name: 'Barbecue Burger',
-        description: 'American, raw, meaty',
-        price: 399,
-    },
-    {
-        id: 'm4',
-        name: 'Greens Bowl',
-        description: 'Healthy and green veggies',
-        price: 439,
-    },
-];
+// const DUMMY_MEALS = [
+//     {
+//         id: 'm1',
+//         name: 'Kadhai Chicken',
+//         description: 'Finest chicken and veggies',
+//         price: 599,
+//     },
+//     {
+//         id: 'm2',
+//         name: 'Momos',
+//         description: 'An east Indian specialty!',
+//         price: 249,
+//     },
+//     {
+//         id: 'm3',
+//         name: 'Barbecue Burger',
+//         description: 'American, raw, meaty',
+//         price: 399,
+//     },
+//     {
+//         id: 'm4',
+//         name: 'Greens Bowl',
+//         description: 'Healthy and green veggies',
+//         price: 439,
+//     },
+// ];
 
 const AvailableMeals = (props) => {
     const [meals, setMeals] = useState([]);
@@ -39,11 +39,12 @@ const AvailableMeals = (props) => {
         const fetchMeals = async () => {
             //rest api endpoint 
             const response = await fetch('https://react-http-c6096-default-rtdb.asia-southeast1.firebasedatabase.app/meals.json');
-            const responseData = await response.json();
-
+            
             if (!response.ok) {
                 throw new Error('Something went wrong!');
             }
+
+            const responseData = await response.json();
 
             const loadedMeals = [];
 
